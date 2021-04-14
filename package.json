@@ -1,0 +1,22 @@
+{
+  "name": "SupplyChainServer",
+  "version": "1.0.0",
+  "description": "tracking the food supply chain in centralized system.",
+  "main": "index.js",
+  "author": "STUDENTS ISE-MITE 2020-21 ",
+  "license": "MIT",
+  "private": null,
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.15",
+    "multer": "^1.4.2"
+  }
+}
