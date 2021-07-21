@@ -1062,6 +1062,16 @@ Router.post('/rfechcom',bodyParser.json(),(req,res)=>{
         
     })
 });
+
+
+
+
+
+
+
+
+//-----------------------------------PRODUCT VERIFICATION------------------------------------------
+
 Router.post('/productVerificationM',bodyParser.json(),(req,res)=>{
     const {id}=req.body;
     const {authorization}=req.headers;
@@ -1254,6 +1264,17 @@ Router.post('/productVerificationM',bodyParser.json(),(req,res)=>{
         })  
       }
 })
+
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 Router.post('/getNotifactions',(req,res)=>{
     const {authorization}=req.headers;
     const {email,role}=verifyToken(authorization.split(" ")[1]);
