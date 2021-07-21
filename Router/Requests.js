@@ -114,7 +114,20 @@ function foodID(){
     return random;
 }
 
-//Factory
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-----------------------------REGISTRATION FACTORY------------------------------------------
 
 Router.post('/addFactoryToDb',bodyParser.json(),(req,res)=>{
     let date=new Date();
@@ -186,6 +199,16 @@ Router.post('/addFactoryToDb',bodyParser.json(),(req,res)=>{
         }
     })
 });
+//------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+//-----------------------------LOGIN FACTORY------------------------------------------
 Router.post('/FactoryLogin',bodyParser.json(),(req,res)=>{
    const {email,password}=req.body;
    model.Factory.find({
@@ -218,8 +241,23 @@ Router.post('/FactoryLogin',bodyParser.json(),(req,res)=>{
        }
 });
 });
+//---------------------------------------------------------------------------------------------------------
 
-//WareHouse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-----------------------------REGISTRATION WAREHOUSE------------------------------------------
 
 Router.post('/addWareHouseToDb',bodyParser.json(),(req,res)=>{
     let date=new Date();
@@ -279,6 +317,21 @@ Router.post('/addWareHouseToDb',bodyParser.json(),(req,res)=>{
         }
     })
 });
+//--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-----------------------------LOGIN WAREHOUSE------------------------------------------
 Router.post('/WareHouseLogin',bodyParser.json(),(req,res)=>{
    const {email,password}=req.body;
    model.WareHouse.find({
@@ -311,9 +364,27 @@ Router.post('/WareHouseLogin',bodyParser.json(),(req,res)=>{
        }
 });
 });
+//---------------------------------------------------------------------------------------------------
 
-//Distributor
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-----------------------------REGISTRATION DISTRIBUTOR------------------------------------------
 Router.post('/addDistributorToDb',bodyParser.json(),(req,res)=>{
     let date=new Date();
     const {name,email,password,owner,address,location,phno,src,distributer_key}=req.body;
@@ -372,7 +443,27 @@ Router.post('/addDistributorToDb',bodyParser.json(),(req,res)=>{
         }
     })
 });
+//--------------------------------------------------------------------------------------------------
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-----------------------------LOGIN DISTRIBUTOR------------------------------------------
 Router.post('/DistributorLogin',bodyParser.json(),(req,res)=>{
    const {email,password}=req.body;
    model.Distributor.find({
@@ -406,8 +497,24 @@ Router.post('/DistributorLogin',bodyParser.json(),(req,res)=>{
 });
 });
 
-//Retailer
+//------------------------------------------------------------------------------------------------
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-----------------------------REGISTRATION RETAILER------------------------------------------
 Router.post('/addRetailerToDb',bodyParser.json(),(req,res)=>{
     let date=new Date();
     const {name,email,password,owner,address,location,phno,src,retailer_key}=req.body;
@@ -466,6 +573,22 @@ Router.post('/addRetailerToDb',bodyParser.json(),(req,res)=>{
         }
     })
 });
+//-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-----------------------------LOGIN RETAILER------------------------------------------
 Router.post('/RetailerLogin',bodyParser.json(),(req,res)=>{
    const {email,password}=req.body;
    model.Retailer.find({
@@ -498,6 +621,20 @@ Router.post('/RetailerLogin',bodyParser.json(),(req,res)=>{
        }
 });
 });
+
+//--------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 Router.post('/verifyToken',(req,res)=>{
     const {authorization}=req.headers;
     let user_info=verifyToken(authorization.split(" ")[1]);
@@ -547,7 +684,17 @@ Router.post('/productInfo',bodyParser.json(),(req,res)=>{
         }
     })
 });
-//Product or Food
+
+
+
+
+
+
+
+
+
+
+//-----------------------------ADD PRODUCT------------------------------------------
 Router.post('/addFoodToDb',bodyParser.json(),(req,res)=>{
     let date=new Date()
     const {Name,Disc,Prize,Nut,MDate,EDate,Quantity}=req.body; 
@@ -613,6 +760,20 @@ Router.post('/addFoodToDb',bodyParser.json(),(req,res)=>{
         }
     })
 });
+
+//---------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 Router.post('/addProductImage',(req,res)=>{
     let id=req.headers.authorization.split(" ")[1];
     upload(req, res, function (err) {
@@ -786,9 +947,20 @@ Router.post('/fetchYear',bodyParser.json(),(req,res)=>{
      
  });
 
-//tracking api
 
-//1)details API
+
+
+
+
+
+
+
+
+
+
+
+//-----------------------------GET PRODUCT------------------------------------------
+
 Router.post('/PrductTracking',bodyParser.json(),(req,res)=>{
     let {product_id}= req.body;
     let details=[];
@@ -832,6 +1004,22 @@ Router.post('/PrductTracking',bodyParser.json(),(req,res)=>{
     })
     
 });
+
+//---------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Router.post('/wfechcom',bodyParser.json(),(req,res)=>{
     let {key}=req.body;
     model.IdPocket.find({warehouse_key:key},(err,data)=>{
